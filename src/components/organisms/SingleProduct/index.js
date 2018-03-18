@@ -3,11 +3,11 @@ import { FilterLink } from 'components'
 
 const SingleProduct = (props) => {
   console.log(props)
-  const itemId = props.match.params.id
+  const { id } = props.match.params
   return (
     <div>
       SingleProduct
-      <p>{itemId}</p>
+      <p>{id}</p>
     </div>
   )
 }

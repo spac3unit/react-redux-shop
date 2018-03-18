@@ -1,12 +1,23 @@
-export const SET_FILTER_ATTRIBUTE = 'SET_FILTER_ATTRIBUTE'
-export const UNSET_FILTER_ATTRIBUTE = 'UNSET_FILTER_ATTRIBUTE'
+export const SET_FILTER = 'SET_FILTER'
+export const UNSET_FILTER = 'UNSET_FILTER'
 
-export const setFilterAttribute = attribute => ({
-  type: SET_FILTER_ATTRIBUTE,
-  attribute,
+export const setFilter = (filterName, filterValue) => ({
+  type: SET_FILTER,
+  filterName,
+  filterValue,
 })
 
-export const unsetFilterAttribute = attribute => ({
-  type: UNSET_FILTER_ATTRIBUTE,
-  attribute,
+export const unsetFilter = (filterName, filterValue) => ({
+  type: UNSET_FILTER,
+  filterName,
+  filterValue,
 })
+export function filterProducts(products, filter) {
+  const filterKeys = Object.keys(filter)
+  return launches.filter((launch) => {
+    return filterKeys.reduce(
+      (acc, key) => acc && launch[key] === filter[key],
+      true
+    )
+  })
+}
